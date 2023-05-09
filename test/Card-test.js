@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const { createCard } = require('../src/card');
+const { createCard, evaluateGuess } = require('../src/card');
 
 describe('card', function() {
   it('should be a function', function() {
@@ -16,16 +16,16 @@ describe('card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
     expect(card.correctAnswer).to.equal('object');
   });  
+});
 
-  describe('turn', function() {
-    it('should be a function', function() {
-      expect(evaluateGuess).to.be.a('function');
-    });
+describe('turn', function() {
+  it('should be a function', function() {
+    expect(evaluateGuess).to.be.a('function');
+  });
 
-    it('should return if a guess to a flashcard question is correct or incorrect', function() {
-      const card = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter'); 
-      expect(evaluateGuess('pug', 'sea otter')).to.equal('incorrect');
-      expect(evaluateGuess('sea otter', 'sea otter')).to.equal('correct');
-    });
+  it('should return if a guess to a flashcard question is correct or incorrect', function() {
+    const card = createCard(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter'); 
+    expect(evaluateGuess('pug', 'sea otter')).to.equal('incorrect');
+    expect(evaluateGuess('sea otter', 'sea otter')).to.equal('correct');
   });
 });
