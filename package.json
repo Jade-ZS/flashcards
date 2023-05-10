@@ -19,6 +19,7 @@
     "mocha": "^6.1.4"
   },
   "dependencies": {
+    "chai-spies": "^1.0.0",
     "inquirer": "^6.3.1"
   }
 }
