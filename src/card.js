@@ -4,7 +4,7 @@ function createCard(id, question, answers, correctAnswer) {
     question: question,
     answers: answers,
     correctAnswer: correctAnswer
-  }
+  };
   return card;
 }
 
@@ -29,9 +29,5 @@ module.exports = {
   createCard,
   evaluateGuess,
   createDeck,
-  countCards,
-  // createRound,
-  // takeTurn,
-  // calculatePercentCorrect,
-  // endRound
+  countCards
 }
