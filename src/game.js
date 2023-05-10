@@ -1,6 +1,8 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const {createDeck, countCards} = require('./card');
+const {createRound} = require('./round');
 
 function printMessage(deck) {
   console.log(`Welcome to FlashCards! You are playing with ${countCards(deck)} cards.
@@ -20,9 +22,8 @@ function start() {
 }
 
 function getCards(cards) {
-  cards.push(data[Math.floor(Math.random() * data.length)]);
+  cards.push(prototypeQuestions[Math.floor(Math.random() * prototypeQuestions.length)]);
   if (cards.length > 4) {
-    console.log(cards)
     return cards;
   }
   return getCards(cards);
