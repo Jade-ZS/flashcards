@@ -23,6 +23,7 @@ function getCards(cards) {
   if (cardAmount > 5 && cards.length >= cardAmount) {
     return cards;
   }
+
   return getCards(cards);
 }
 
@@ -33,8 +34,6 @@ function start() {
     printMessage(deck);
     printQuestion(round);
 }
-
-
 
 start();
 
