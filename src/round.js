@@ -26,7 +26,7 @@ function takeTurn(guess, round) {
 
 function calculatePercentCorrect(round) {
   let wrongGuesses = round.incorrectGuesses.length;
-  let percentage = (round.turns - wrongGuesses) / round.turns * 100;
+  let percentage = parseFloat(((round.turns - wrongGuesses) / round.turns * 100).toFixed(2));
   return percentage;
 }
 
