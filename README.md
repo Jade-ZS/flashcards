@@ -3,7 +3,7 @@
 This program simulates a set of flash cards through the command line! A user will be able to see the questions, take guesses, and see a final score at the end of the round.
 
 ## A GIF of the working application
-
+![flashcards running gif](https://user-images.githubusercontent.com/123802263/237857303-daaaa9e0-a169-4080-8768-eea18ac63f81.gif)
 
 ## Technologies used
 - Javascript
