@@ -2,31 +2,33 @@ const chai = require('chai');
 const expect = chai.expect;
 const spies = require('chai-spies');
 chai.use(spies);
+
 const { createRound, takeTurn, calculatePercentCorrect, endRound } = require('../src/round');
 
 describe('round', function() {
   let expectedRound;
   let deck;
+
   beforeEach(function() {
     deck = [
       {
         id: 1, 
         question: 'What is Robbie\'s favorite animal', 
-        possibleAnswers: ['sea otter', 'pug', 'capybara'], 
+        answers: ['sea otter', 'pug', 'capybara'], 
         correctAnswer: 'sea otter'
       },
 
       {
         id: 14, 
         question: 'What organ is Khalid missing?', 
-        possibleAnswers: ['spleen', 'appendix', 'gallbladder'], 
+        answers: ['spleen', 'appendix', 'gallbladder'], 
         correctAnswer: 'gallbladder'
       },
 
       {
         id: 12, 
         question: 'What is Travis\'s middle name?', 
-        possibleAnswers: ['Lex', 'William', 'Fitzgerald'], 
+        answers: ['Lex', 'William', 'Fitzgerald'], 
         correctAnswer: 'Fitzgerald'
       }
     ];
@@ -36,7 +38,7 @@ describe('round', function() {
       currentCard: {
           id: 1, 
           question: 'What is Robbie\'s favorite animal', 
-          possibleAnswers: ['sea otter', 'pug', 'capybara'], 
+          answers: ['sea otter', 'pug', 'capybara'], 
           correctAnswer: 'sea otter'
       },
       turns: 0,
@@ -47,11 +49,10 @@ describe('round', function() {
 
   it('should be the object that organizes guesses and records if they are correct or incorrect.', function() {
     const round = createRound(deck);
-    // expect(round.deck).to.equal(deck);
-    // expect(round.currentCard).to.equal(deck[0]);
-    // expect(round.turns).to.equal(0);
-    // expect(round.incorrectGuesses).to.deep.equal([]);
-    expect(round).to.deep.equal(expectedRound);
+    expect(round.deck).to.deep.equal(expectedRound.deck);
+    expect(round.currentCard).to.deep.equal(expectedRound.currentCard);
+    expect(round.turns).to.equal(expectedRound.turns);
+    expect(round.incorrectGuesses).to.deep.equal(expectedRound.incorrectGuesses);
   });
 
   it('takeTurn should update the turns count, evaluate guesses, give feedback, and store ids of incorrect guesses', function() {
